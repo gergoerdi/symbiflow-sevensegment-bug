@@ -4,8 +4,7 @@
 `timescale 100fs/100fs
 module topEntity
     ( // Inputs
-      input  CLK // clock
-    , input [7:0] SWITCHES
+      input [7:0] SWITCHES
 
       // Outputs
     , output wire [3:0] SS_AN
