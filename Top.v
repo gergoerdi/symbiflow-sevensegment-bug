@@ -1,13 +1,11 @@
 module Top(
            input        CLK100MHZ,
-           output [3:0] AN,
-           output [6:0] SEG,
-           output       DP
+           output [3:0] LED
            );
 
    reg [26:0]           cnt = 0;
    reg [1:0]            i = 0;
-   wire signed [63:0]   idx = $signed({{(64-2) {1'b0}},i});
+   wire signed [3:0]   idx = $signed(i);
    reg [3:0]            result;
 
    always @(posedge CLK100MHZ) begin : cnt_register
@@ -27,8 +25,6 @@ module Top(
       result[idx] = 1'b1;
    end
 
-   assign AN = ~result;
-   assign SEG = 7'd0;
-   assign DP = 1'b1;
+   assign LED = result;
 
 endmodule
